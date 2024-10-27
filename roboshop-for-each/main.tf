@@ -26,7 +26,7 @@ resource "aws_instance" "instance" {
 resource "aws_route53_record" "record" {
   count = var.instances
   zone_id = "Z10227673MRFB0EY34RV8"
-  name    = "frontend-dev.venkysiridevops.online"
+  name    = "${each.key}.venkysiridevops.online"
   type    = "A"
   ttl     = "30"
   records = [aws_instance.instance[each.key].private_ip]
