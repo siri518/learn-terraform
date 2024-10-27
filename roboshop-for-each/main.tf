@@ -24,7 +24,7 @@ resource "aws_instance" "instance" {
 }
 
 resource "aws_route53_record" "record" {
-  count = var.instances
+  for_each = var.instances
   zone_id = "Z10227673MRFB0EY34RV8"
   name    = "${each.key}.venkysiridevops.online"
   type    = "A"
