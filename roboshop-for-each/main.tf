@@ -14,7 +14,7 @@ variable "instances" {
 }
 
 resource "aws_instance" "instance" {
-  count = var.instances
+  for_each = var.instances
   ami   = "ami-09c813fb71547fc4f"
   instance_type = "t3.small"
   vpc_security_group_ids =["sg-01afef600657f35e7"]
