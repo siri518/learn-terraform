@@ -29,12 +29,14 @@ variable "str2" {
   default = "World"
 }
 
+# numbers, Booleans & strings
 variable "list1"{
   default = [
   10, 20, "xyz",false
   ]
 }
 
+# list can have combination of multiple data types also
 variable "map1"{
    default = {
      aws ={
@@ -55,4 +57,10 @@ output "list_1"{
 
 output "map1_aws_trainer"{
   value = var.map1["aws"]["trainer"]
+}
+
+
+# declare a empty variable and we can get the value from CLI, Unlike ansible or shell we must and should declare a variable in order to use it
+variable  "trainer_name"{
+
 }
